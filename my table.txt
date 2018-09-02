@@ -1,0 +1,11 @@
+n = 2
+c_name:
+name  num  
+
+c_elemtype:
+char  int  
+
+zcj  12  ;
+zwm  12  ;
+yxx  10  ;
+ywj  9  ;

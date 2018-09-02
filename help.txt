@@ -1,0 +1,46 @@
+>>start mysql开始
+    >>create table:table name.expanded-name:membername elemtyep......
+	(example:create table:my first table.tex:name char num int)
+	功能：创建表及创建结构体      
+    >>table insert:elem_1 elem_1 elem_1 ...elem2 elem2 elem2...
+	(example:table insert:zcj 12 33 zwm 39 23)
+	功能：插入元素
+    >>insert member:member_name member_elemtype elem1 elem2 ...
+	(example:insert member:score float 1.1 2.2 3.3)
+	功能：再次插入结构体成员
+    >>delete:membername elem	
+	(example:delete:name zcj)
+	功能：删除元素
+    >>delete member:member_name
+	(example:delete member:name)
+	功能：删除一个结构体成员
+    >>search:membername elem
+	(example:search:name zcj)
+	功能：查找元素
+    >>print my table:
+	功能：打印当前的表格
+    >>save my table:table_name
+       	(example:save my table:my table.txt)
+	功能：保存当前表格
+    >>read:the name of table.expanded-name
+	(example:read:my table.txt)
+	功能：读取表格
+    >>sort:sort_temp:remembername
+	(example:sort:1:name)
+	功能：按要求进行排序，0表示升序，1表示降序
+    >>search condition:saerchname >/< data
+	(example:saerch condition:score > 60)
+	功能：按条件筛选出符合要求的元素
+    >>amend:amend_name number new_data
+	(example:amend:score 4 89)
+	功能：按指定结构体成员名修改该成员名指定位置的数据
+    >>operation_column:sum/average column_name
+	(example:operation_column:sum score)
+	功能：按要求对指定列（成员名）进行求和或求平均的运算
+    >>combine table:table_name1:table_name2
+	(example:combine table:my table_1.txt:my table_2.txt)
+	功能：合并两个表格
+    >>help:
+	功能：显示帮助文件
+
+

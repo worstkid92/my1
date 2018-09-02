@@ -1,0 +1,132 @@
+#include "MYSQL.h"
+
+struct node *fre(struct node *head,char c_name[30][30],char c_elemtype[30][6],int *n,FILE *fp_1)
+{
+	int m,j = 0,index = 0;
+	char c,s[3000];
+	char ch;
+	struct node *l,*head_1;
+
+	head = (struct node*)malloc(sizeof(struct node));
+
+	l = head;
+	head_1 = head;
+
+	*n = 0;
+
+	fseek(fp_1,4,1);
+
+	for(;;)
+	{
+		ch = fgetc(fp_1);
+		if(ch>='0'&&ch<='9')
+		{
+			*n = (*n)*10+ch-48;
+		}
+		else
+		{
+			fseek(fp_1,-1,1);
+			break;
+		}
+	}
+	printf("n = %d\n",*n);					//读n
+
+	fseek(fp_1,9,1);
+	c = fgetc(fp_1);
+
+	for(m = 1;m<=*n;m++)					//读c_name
+	{
+		j = 0;
+		for(;;)
+		{
+			c_name[m][j] = fgetc(fp_1);
+			if(c_name[m][j] == ' ')
+			{
+				c_name[m][j] = '\0';
+				c = fgetc(fp_1);
+						break;
+			}
+			else
+			{
+				j++;
+			}
+		}
+	}
+
+	fseek(fp_1,17,1);
+
+	for(m = 1;m<=*n;m++)					//读c_elemtype
+	{
+		j = 0;
+		for(;;)
+		{
+			c_elemtype[m][j] = fgetc(fp_1);
+			if(c_elemtype[m][j] == ' ')
+			{
+				c_elemtype[m][j] = '\0';
+				c = fgetc(fp_1);
+				break;
+			}
+			else
+			{
+				j++;
+			}
+		}
+	}
+
+	fseek(fp_1,4,1);
+
+	j = 0;
+	for(;;)									//将剩余数据存入s中
+	{
+		c = fgetc(fp_1);
+		if(c != EOF)
+		{
+			s[j] = c;
+			j++;
+		}
+		else
+		{
+			s[j] = '\0';
+
+			break;
+		}
+	}
+
+	j = 0;
+
+	for(;;)									//读入数据
+	{
+		for(m = 1;m<=*n;)
+		{
+			c = s[index];
+			if(c!=' ')
+			{
+				l->ch[m][j] = c;
+				j++;
+				index++;
+			}
+			else
+			{
+				l->ch[m][j] = '\0';
+				index = index+2;
+				m++;
+				j = 0;
+			}
+		}
+		c = s[index+2];
+		if(c == '\0')
+		{
+			l->next = NULL;
+			break;
+		}
+		else
+		{
+			index = index+2;
+			l->next = (struct node*)malloc(sizeof(struct node));
+			l = l->next;
+		}
+	}
+
+	return head;
+}

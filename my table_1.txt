@@ -1,0 +1,11 @@
+n = 4
+c_name:
+name  num  score  qq  
+
+c_elemtype:
+char  int  float  int  
+
+zcj  12  1.1  22  ;
+zwm  39  2.2  33  ;
+yxx  10  3.3  44  ;
+ywj  19  4.4  55  ;

@@ -1,0 +1,12 @@
+n = 2
+c_name:
+name  num  
+
+c_elemtype:
+char  int  
+
+张王敏  39  ;
+张陈军  12  ;
+俞文杰  9  ;
+杨晓旭  10  ;
+金培源  1  ;
